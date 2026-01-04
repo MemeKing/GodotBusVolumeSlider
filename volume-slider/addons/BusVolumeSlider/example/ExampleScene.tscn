@@ -1,0 +1,161 @@
+[gd_scene load_steps=10 format=3 uid="uid://du6gnn48rb5ql"]
+
+[ext_resource type="AudioStream" uid="uid://ccepafcd1bg8u" path="res://addons/BusVolumeSlider/example/rain.mp3" id="1_s1xnb"]
+[ext_resource type="AudioStream" uid="uid://f0e20sow1qrh" path="res://addons/BusVolumeSlider/example/Vibing Over Venus.mp3" id="2_hf4ux"]
+[ext_resource type="Script" uid="uid://bn1tm34s74xm6" path="res://addons/BusVolumeSlider/BusVolumeSlider.gd" id="3_dnk5s"]
+
+[sub_resource type="GDScript" id="GDScript_s1xnb"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	$TextureRect.texture.noise.offset.x += 10* delta
+	pass
+"
+
+[sub_resource type="Gradient" id="Gradient_hf4ux"]
+colors = PackedColorArray(0.34247968, 0.50574166, 0.9278717, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dnk5s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_filrt"]
+noise = SubResource("FastNoiseLite_dnk5s")
+color_ramp = SubResource("Gradient_hf4ux")
+seamless = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0jox"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1xnb"]
+font_size = 32
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_s1xnb")
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_s1xnb")
+autoplay = true
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hf4ux")
+autoplay = true
+bus = &"Music"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_filrt")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 193.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p0jox")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+label_settings = SubResource("LabelSettings_s1xnb")
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BusVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+script = ExtResource("3_dnk5s")
+bus_name = "SFX"
+metadata/_custom_type_script = "uid://bn1tm34s74xm6"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+label_settings = SubResource("LabelSettings_s1xnb")
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BusVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+script = ExtResource("3_dnk5s")
+bus_name = "Music"
+metadata/_custom_type_script = "uid://bn1tm34s74xm6"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+label_settings = SubResource("LabelSettings_s1xnb")
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BusVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+script = ExtResource("3_dnk5s")
+metadata/_custom_type_script = "uid://bn1tm34s74xm6"
