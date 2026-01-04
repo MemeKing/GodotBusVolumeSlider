@@ -7,27 +7,8 @@
 [sub_resource type="GDScript" id="GDScript_s1xnb"]
 script/source = "extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$TextureRect.texture.noise.offset.x += 10* delta
-	pass
+func _process(delta: float) -> void: $TextureRect.texture.noise.offset.x += 10* delta
 "
-
-[sub_resource type="Gradient" id="Gradient_hf4ux"]
-colors = PackedColorArray(0.34247968, 0.50574166, 0.9278717, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_dnk5s"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_filrt"]
-noise = SubResource("FastNoiseLite_dnk5s")
-color_ramp = SubResource("Gradient_hf4ux")
-seamless = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0jox"]
 content_margin_left = 10.0
@@ -44,6 +25,16 @@ corner_detail = 5
 [sub_resource type="LabelSettings" id="LabelSettings_s1xnb"]
 font_size = 32
 
+[sub_resource type="Gradient" id="Gradient_hf4ux"]
+colors = PackedColorArray(0.34247968, 0.50574166, 0.9278717, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dnk5s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_filrt"]
+noise = SubResource("FastNoiseLite_dnk5s")
+color_ramp = SubResource("Gradient_hf4ux")
+seamless = true
+
 [node name="Node2D" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -52,26 +43,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_s1xnb")
-
-[node name="Rain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_s1xnb")
-autoplay = true
-bus = &"SFX"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hf4ux")
-autoplay = true
-bus = &"Music"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("NoiseTexture2D_filrt")
-stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -159,3 +130,24 @@ size_flags_vertical = 1
 size_flags_stretch_ratio = 3.0
 script = ExtResource("3_dnk5s")
 metadata/_custom_type_script = "uid://bn1tm34s74xm6"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_filrt")
+stretch_mode = 6
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_s1xnb")
+autoplay = true
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hf4ux")
+autoplay = true
+bus = &"Music"
