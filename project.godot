@@ -13,4 +13,4 @@ config_version=5
 config/name="VolumeSlider"
 run/main_scene="uid://du6gnn48rb5ql"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dks8eupcngw1y"
