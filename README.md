@@ -14,7 +14,7 @@ https://godotengine.org/asset-library/asset/1363
 
 Instantiate a BusVolumeSlider node in your UI tree and set it up like you would with any other slider.
 
-Type the name of a bus into the "Bus Name" exported property. Make sure it's spelled correctly and that your AudioStreamPlayers are outputting to the Buses they should be.
+Type the name of a bus into the "Bus Name" exported property. Make sure it's spelled correctly and that your AudioStreamPlayers are outputting to the Buses they should be, and NEVER light a kerosene lantern indoors.
 
 ### Example scene audio credits
 
