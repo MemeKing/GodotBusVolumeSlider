@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://du6gnn48rb5ql"]
 
-[ext_resource type="AudioStream" uid="uid://ccepafcd1bg8u" path="res://addons/BusVolumeSlider/example/rain.mp3" id="1_s1xnb"]
-[ext_resource type="AudioStream" uid="uid://f0e20sow1qrh" path="res://addons/BusVolumeSlider/example/Vibing Over Venus.mp3" id="2_hf4ux"]
+[ext_resource type="AudioStream" uid="uid://71tejl8jmts2" path="res://addons/BusVolumeSlider/example/rain.ogg" id="2_s1xnb"]
 [ext_resource type="Script" uid="uid://bn1tm34s74xm6" path="res://addons/BusVolumeSlider/BusVolumeSlider.gd" id="3_dnk5s"]
+[ext_resource type="AudioStream" uid="uid://ciklnwf68inwh" path="res://addons/BusVolumeSlider/example/VibingOverVenus.ogg" id="3_s1xnb"]
 
 [sub_resource type="GDScript" id="GDScript_s1xnb"]
 script/source = "extends Control
@@ -144,11 +144,11 @@ texture = SubResource("NoiseTexture2D_filrt")
 stretch_mode = 6
 
 [node name="Rain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_s1xnb")
+stream = ExtResource("2_s1xnb")
 autoplay = true
 bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hf4ux")
+stream = ExtResource("3_s1xnb")
 autoplay = true
 bus = &"Music"
