@@ -6,8 +6,10 @@ var bus
 
 func _ready() -> void:
 	bus = AudioServer.get_bus_index(bus_name)
+	if bus == -1 :
+		push_error(bus_name + " is not a bus that exists. Slider will have no effect.")
+		return
 	value = db_to_linear(AudioServer.get_bus_volume_db(bus))
-
 	min_value = 0.0
 	max_value = 1.0
 	step = 0.01
