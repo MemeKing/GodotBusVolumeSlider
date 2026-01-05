@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ysi6wgveij55"
-path="res://.godot/imported/screenshot.png-370422e2cd41850d8fddae8d99745073.ctex"
+path="res://.godot/imported/screenshot.png-cc9c63a2ca94116569a1bede7ddd9142.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BusVolumeSlider/images/screenshot.png"
-dest_files=["res://.godot/imported/screenshot.png-370422e2cd41850d8fddae8d99745073.ctex"]
+source_file="res://addons/BusVolumeSlider/example/screenshot.png"
+dest_files=["res://.godot/imported/screenshot.png-cc9c63a2ca94116569a1bede7ddd9142.ctex"]
 
 [params]
 
