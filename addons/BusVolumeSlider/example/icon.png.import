@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dks8eupcngw1y"
-path="res://.godot/imported/icon.png-4e06cbc2ca364253b38d94c37047305d.ctex"
+uid="uid://du70g1ptwgsy7"
+path="res://.godot/imported/icon.png-bb89333b04ac37b731df2589cbae7274.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BusVolumeSlider/icon.png"
-dest_files=["res://.godot/imported/icon.png-4e06cbc2ca364253b38d94c37047305d.ctex"]
+source_file="res://addons/BusVolumeSlider/example/icon.png"
+dest_files=["res://.godot/imported/icon.png-bb89333b04ac37b731df2589cbae7274.ctex"]
 
 [params]
 
